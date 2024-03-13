@@ -1,5 +1,4 @@
 import os
-import spacy
 from lingua import Language, LanguageDetectorBuilder
 
 detector = LanguageDetectorBuilder.from_languages(Language.ENGLISH, Language.SPANISH, Language.GERMAN).build()
@@ -31,16 +30,20 @@ def is_english(text):
         return False
 
 def main():
-    hemingway_dir = 'TextSamples'  
+    hemingway_dir = 'TextSamples'
     texts = read_all(hemingway_dir)
- 
+
     if not texts:
         print(f"No text files found in {hemingway_dir}.")
         return
 
-    eng_texts = [text for text in texts if is_english(text[1])]
-    for filename, _ in eng_texts:
-        print(f"'{filename}' is in English. Processing...")
+    eng_texts = []
+    for filename, content in texts:
+        if is_english(content):
+            print(f"'{filename}' is in English. Processing...")
+            eng_texts.append((filename, content))
+        else:
+            print(f"'{filename}' is not in English. Skipping..")
 
     if not eng_texts:
         print('No English texts were found. Please make sure the texts you upload are in English.')
