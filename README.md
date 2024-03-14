@@ -10,8 +10,8 @@ Quill Ode is a poem verse generator that creates poems in the style of various f
 PyTorch, Word2Vec and NLTK amongst other technologies that I see fit through it's lifetime. 
 
 <h2> Quill Tome </h2>
-Quill Tome is a lightweight chatbot that aims to be a wealth of knowledge for all things Literature, both old and new. It will also be using PyTorch and NLTK, potentially along with Rasa, Amazon Neptune or TextBlob (I will only plan to support the English language). 
+Quill Tome is a lightweight chatbot that aims to be a wealth of knowledge for all things Literature, both old and new. It will also be using PyTorch and NLTK, potentially along with Rasa, Amazon Neptune or TextBlob (I will only plan to support the English language).            <h1></h1>
 
-This exercise is for my own enjoyment and to develop my programming skills amongst other skills such as writing _good_ code as opposed to just working code, proper documentation and good habits when it comes to organizing files, managing a repository, etc etc.
+ This exercise is for my own enjoyment and to develop my programming skills amongst other skills such as writing _good_ code as opposed to just working code, proper documentation and good habits when it comes to organizing files, managing a repository, etc etc.
 
 _This README will constantly be updated as the project moves along. Last update: 1:53 AM EST // 3/14/2024_
