@@ -2,7 +2,7 @@ import os
 from lingua import Language, LanguageDetectorBuilder
 import nltk
 from nltk import pos_tag
-from nltk.tokenize import word_tokenize, sent_tokenize
+from nltk.tokenize import word_tokenize, sent_tokenize, regexp_tokenize
 import re
 
 #build lingua once to recognize the following languages
@@ -55,7 +55,7 @@ def parse_all(directory):
                 text = file.read()      #read each file
                 processed = preprocess(text)        #process it (from preprocess above)
                 texts.append(processed)         #add processed texts to 'texts'
-                words = word_tokenize(processed)        #tokenize words list
+                words = regexp_tokenize(processed, pattern=r'\b\w+\b')        #tokenize words list
                 sentences = sent_tokenize(processed)    #tokenize all sentences
                 all_words.extend(words)         #update words list
                 all_sentences.extend(sentences)     #update sentences list
