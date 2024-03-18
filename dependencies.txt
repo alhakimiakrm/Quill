@@ -1,2 +1,5 @@
-lingua
-nltk (download popular data)
+import os
+from lingua import Language, LanguageDetectorBuilder
+from nltk.tokenize import sent_tokenize, regexp_tokenize
+from collections import defaultdict
+import re
