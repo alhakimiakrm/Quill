@@ -4,7 +4,7 @@ I created Quill to venture into NLP and Machine Learning.
  of a language and the literature behind the history of languages than to incorporate NLP into my studies.
 <h1> 3-18-2024 </h1> 
 <p>
-I combined hway_aggregate and hway_words into just wordFreq to clean up the code a little bit. From here, I would like to now extract phrases or chunks of text from Hemingway's poems and find not only the structure of his poems, but the structure of _a_ poem. I'd use his current poems that I have as some examples since he has some pretty good baselines.
+I combined hway_aggregate and hway_words into just wordFreq to clean up the code a little bit. From here, I would like to now extract phrases or chunks of text from Hemingway's poems and find not only the structure of his poems, but the structure of a poem. I'd use his current poems that I have as some examples since he has some pretty good baselines.
 In the future when I incorporate different artists, I would be able to take advantage of the template I've made for him.
 
  <p> I might go about this using Word2Vec. I plan on using PyTorch to train my Word2Vec model. The main goal here is to get my program to find the structure of a poem. The meter and rhythm, stanza structures and other stylstic elements that comprise a poem. This link from TensorFlow seems to be a really helpful resource to use for the future. 
