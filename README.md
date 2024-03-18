@@ -28,4 +28,4 @@ Quill Tome is a lightweight chatbot that aims to be a wealth of knowledge for al
 
  This exercise is for my own enjoyment and to develop my programming skills amongst other skills such as writing _good_ code as opposed to just working code, proper documentation and good habits when it comes to organizing files, managing a repository, etc etc. If anyone runs into this and wants to help, or provide feedback, you are completely welcome to. Do not expect to see good practices in play though, I suck pretty bad right now lol.
 
-_This README will constantly be updated as the project moves along. Last update: 6:18 AM EDT // 3/17/2024_
+_This README will constantly be updated as the project moves along. Last update: 6:12 AM EDT // 03/18/2024_
