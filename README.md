@@ -2,13 +2,17 @@
 I created Quill to venture into NLP and Machine Learning.
  With doing my Dual Degree in English and Computer Science, I thought of no better way to take advantage of what I have been able to learn about the concept
  of a language and the literature behind the history of languages than to incorporate NLP into my studies.
-<p> <h1> 3-17-2024 </h1> 
-I've implemented a few functions to try and find common words, themes and phrases. It's absolutely not fleshed out yet and truthfully, I'm a bit lost on how to more efficiently accomplish those tasks.
-I thought that maybe having a general aggregate function that goes over all of Hemingway's poems would be the most effective and least time consuming but I am thinking that it might help to take the extra time
-to pinpoint these things for the future of the program.
-</p>
+<h1> 3-18-2024 </h1> 
+<p>
+I combined hway_aggregate and hway_words into just wordFreq to clean up the code a little bit. From here, I would like to now extract phrases or chunks of text from Hemingway's poems and find not only the structure of his poems, but the structure of _a_ poem. I'd use his current poems that I have as some examples since he has some pretty good baselines.
+In the future when I incorporate different artists, I would be able to take advantage of the template I've made for him.
 
-<p> Thinking ahead, I am trying to see what the best way to go about training a model would be for Quill. I need it to read the data I provide and return the results in order to not only generate a sensible poem, but one that reads the info I provide it with of artists like Hemingway and make it in their style. I saw something about either using a open-source model like GPT or building your own. I don't know that I'd even understand how to build my own, but that is something I'll have to continue researching to make Quill what I want it to be.
+ <p> I might go about this using Word2Vec. I plan on using PyTorch to train my Word2Vec model. The main goal here is to get my program to find the structure of a poem. The meter and rhythm, stanza structures and other stylstic elements that comprise a poem. This link from TensorFlow seems to be a really helpful resource to use for the future. 
+https://www.tensorflow.org/text/tutorials/word2vec
+</p>
+ </p>
+
+
 </p>
 
 <h3> As a current idea, Quill so far is split into two different programs... </h3> 
