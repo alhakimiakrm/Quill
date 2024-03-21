@@ -12,7 +12,7 @@ $ echo $SHELL
 
 ```
 
-##Development Enviornment <a name = "Quill"></a>
+## Development Enviornment <a name = "Quill"></a>
 It is recommended that you initiate a virtual enviornment to develop out of this repository.
 
 ```Shell
