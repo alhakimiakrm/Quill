@@ -1,3 +1,42 @@
+## Prerequisites <a name = "prerequisites"></a>
+
+You need to have a machine with Python 3.9+ installed. Please also refer to the dependencies and ensure you have the required libraries installed.
+
+```Shell
+
+$ python3.9 -V
+Python 3.9.7
+
+$ echo $SHELL
+/usr/bin/zsh
+
+```
+
+##Development Enviornment <a name = "Quill"></a>
+It is recommended that you initiate a virtual enviornment to develop out of this repository.
+
+```Shell
+$ pip install virtualenv
+```
+
+On PC:
+
+```Shell
+$ python -m venv <your-enviornment-name>
+$ <\.your-enviornment-name>\Scripts\activate
+```
+
+On Mac/Linux:
+```Shell
+$ python3 venv <your-enviornment-name>
+$ source <your-enviornment-name>/bin/activate
+```
+
+Use deactivate to exit the virtual enviornment
+```Shell
+$ deactivate
+```
+
 <h1> Quill: An Exercise in NLP </h1>
 I created Quill to venture into NLP and Machine Learning.
  With doing my Dual Degree in English and Computer Science, I thought of no better way to take advantage of what I have been able to learn about the concept
