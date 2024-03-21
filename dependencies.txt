@@ -3,3 +3,4 @@ from lingua import Language, LanguageDetectorBuilder
 from nltk.tokenize import sent_tokenize, regexp_tokenize
 from collections import defaultdict
 import re
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
