@@ -13,7 +13,7 @@ $ echo $SHELL
 ```
 
 ## Development Environment <a name = "Quill"></a>
-It is recommended that you initiate a virtual enviornment to develop out of this repository.
+It is recommended that you initiate a virtual environment to develop out of this repository.
 
 ```Shell
 $ pip install virtualenv
