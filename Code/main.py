@@ -84,8 +84,7 @@ def wordFreq(Hemingway):
                 print(f"Error reading file {file_path}: {e}")
     return combined_freq
 
-
-
+#Build a poem based off of the structure of 'The Age Demanded' --- Work PC does not have C++ compiler :( 
 def typeTAD(dir):
     tad = "hemingway1.txt"
     file_path = os.path.join(dir, tad)
@@ -98,10 +97,6 @@ def typeTAD(dir):
     except IOError as e:
             print(f'Error reading file {file_path}: {e}')
                     
-                    
-
-
-
 #main loop
 def main():
     hemingway_dir = 'Hemingway'
