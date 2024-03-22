@@ -63,7 +63,7 @@ def parse_all(Hemingway):
                 print(sentences)  
     return texts, all_words, all_sentences
 
-#find the most common words from each of the texts within a given directory
+
 def wordFreq(Hemingway):
     combined_freq = defaultdict(int)
     
@@ -82,7 +82,6 @@ def wordFreq(Hemingway):
 
             except IOError as e:
                 print(f"Error reading file {file_path}: {e}")
-
     return combined_freq
 
 

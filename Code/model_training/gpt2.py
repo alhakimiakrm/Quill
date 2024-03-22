@@ -1,5 +1,7 @@
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
+#This is a script to test GPT2's functionality as a pre-trained model that we could pass our data through
+
 def generate_text(prompt_text, model_name='gpt2-medium', length=100):
     tokenizer = GPT2Tokenizer.from_pretrained(model_name)
     model = GPT2LMHeadModel.from_pretrained(model_name)
@@ -16,6 +18,6 @@ def generate_text(prompt_text, model_name='gpt2-medium', length=100):
     return text.strip()
 
 
-prompt = "The age demanded that we sing, " 
+prompt = "The old man looked at the sea," 
 generated_text = generate_text(prompt)
-print(generated_text)
+print(prompt, generated_text)
