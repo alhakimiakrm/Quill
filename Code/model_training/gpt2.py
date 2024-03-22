@@ -16,6 +16,6 @@ def generate_text(prompt_text, model_name='gpt2-medium', length=100):
     return text.strip()
 
 
-prompt = "The old man looked at the sea," 
+prompt = "The age demanded that we sing, " 
 generated_text = generate_text(prompt)
 print(generated_text)

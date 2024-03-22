@@ -4,6 +4,7 @@ from nltk.tokenize import sent_tokenize, regexp_tokenize
 from collections import defaultdict
 import re
 
+
 #build lingua once to recognize the following languages
 detector = LanguageDetectorBuilder.from_languages(Language.ENGLISH, Language.SPANISH, Language.GERMAN).build()
 
@@ -62,7 +63,7 @@ def parse_all(Hemingway):
                 print(sentences)  
     return texts, all_words, all_sentences
 
-
+#find the most common words from each of the texts within a given directory
 def wordFreq(Hemingway):
     combined_freq = defaultdict(int)
     
@@ -83,6 +84,23 @@ def wordFreq(Hemingway):
                 print(f"Error reading file {file_path}: {e}")
 
     return combined_freq
+
+
+
+def typeTAD(dir):
+    tad = "hemingway1.txt"
+    file_path = os.path.join(dir, tad)
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            text = file.read()
+            processed = preprocess(text)
+            texts, all_words, all_sentences = parse_all(processed)
+                    
+    except IOError as e:
+            print(f'Error reading file {file_path}: {e}')
+                    
+                    
+
 
 
 #main loop
