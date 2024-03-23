@@ -18,6 +18,6 @@ def generate_text(prompt_text, model_name='gpt2-medium', length=100):
     return text.strip()
 
 
-prompt = "There are never any suicides in the quarter among people one knows, " 
+prompt = "There are never any suicides in the quarter among people one knows," 
 generated_text = generate_text(prompt)
 print(prompt, generated_text)
