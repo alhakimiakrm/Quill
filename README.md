@@ -12,8 +12,8 @@ $ echo $SHELL
 
 ```
 
-##Development Enviornment <a name = "Quill"></a>
-It is recommended that you initiate a virtual enviornment to develop out of this repository.
+## Development Environment <a name = "Quill"></a>
+It is recommended that you initiate a virtual environment to develop out of this repository.
 
 ```Shell
 $ pip install virtualenv
@@ -22,17 +22,17 @@ $ pip install virtualenv
 On PC:
 
 ```Shell
-$ python -m venv <your-enviornment-name>
+$ python -m venv <your-environment-name>
 $ <\.your-enviornment-name>\Scripts\activate
 ```
 
 On Mac/Linux:
 ```Shell
-$ python3 venv <your-enviornment-name>
-$ source <your-enviornment-name>/bin/activate
+$ python3 venv <your-environment-name>
+$ source <your-environment-name>/bin/activate
 ```
 
-Use deactivate to exit the virtual enviornment
+Use deactivate to exit the virtual environment
 ```Shell
 $ deactivate
 ```
