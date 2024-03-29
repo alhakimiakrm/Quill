@@ -1,3 +1,10 @@
+<h1> Quill: An Exercise in NLP </h1>
+I created Quill to venture into NLP and Machine Learning.
+ With doing my Dual Degree in English and Computer Science, I thought of no better way to take advantage of what I have been able to learn about the concept
+ of a language and the literature behind the history of languages than to incorporate NLP into my studies.
+
+
+
 ## Prerequisites <a name = "prerequisites"></a>
 
 You need to have a machine with Python 3.9+ installed. Please also refer to the dependencies and ensure you have the required libraries installed.
@@ -37,10 +44,7 @@ Use deactivate to exit the virtual environment
 $ deactivate
 ```
 
-<h1> Quill: An Exercise in NLP </h1>
-I created Quill to venture into NLP and Machine Learning.
- With doing my Dual Degree in English and Computer Science, I thought of no better way to take advantage of what I have been able to learn about the concept
- of a language and the literature behind the history of languages than to incorporate NLP into my studies.
+
 <h1> 3-21-2024 </h1> 
  </p>I implemented Word2Vec from gensim and started with a barebones model to test the functionality. I also played around with GPT-2 and implemented a simple version of that. I'm curious if both can be 
 utilized to be trained on my specific and fairly specialized set of data or if it would only make sense
