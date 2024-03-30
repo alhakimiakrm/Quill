@@ -45,10 +45,8 @@ $ deactivate
 ```
 
 
-<h1> 3-21-2024 </h1> 
- </p>I implemented Word2Vec from gensim and started with a barebones model to test the functionality. I also played around with GPT-2 and implemented a simple version of that. I'm curious if both can be 
-utilized to be trained on my specific and fairly specialized set of data or if it would only make sense
-to go one route. I don't quite understand how or why one would not be able to both use Word2Vec to pass particular data as well as GPT-2 to handle text generation. I'm sure there's a way to go about that, I just need to do more research.
+<h1> 3-30-2024 </h1> 
+ </p>Began training a model on Hemingway's text which have all been consolidated into one file (hemingway1.txt). Also began to do some practice with Word2Vec and playing with positive and negative skip-grams.
 </p>
  
  <h2> Quill </h2>
@@ -57,4 +55,4 @@ Pyhton and various NLP based technologies like NLTK, Word2Vec and PyTorch amongs
 
  This exercise is for my own enjoyment and to develop my programming skills as well as other skills such as writing _good_ code as opposed to just working code, proper documentation and good habits when it comes to organizing files, managing a repository, etc etc. If anyone runs into this and wants to help, or provide feedback, you are completely welcome to. 
 
-_This README will constantly be updated as the project moves along. Last update: 3:32 PM EDT // 03/21/2024_
+_This README will constantly be updated as the project moves along. Last update: 1:53 PM EDT // 03/30/2024_
