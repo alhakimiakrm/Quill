@@ -47,6 +47,8 @@ $ deactivate
 
 <h1> 3-30-2024 </h1> 
  </p>Began training a model on Hemingway's texts which have all been consolidated into one file (hemingway1.txt). Also began to do some practice with Word2Vec and playing with positive and negative skip-grams.
+
+ The model is extremely unpredictable and generating text that often has nothing to do with the text I supplied the model with. 
 </p>
  
  <h2> Quill </h2>
