@@ -1,9 +1,14 @@
-from main import common_words, hway_aggregate, Counter, hway_theme
+import os
+import sys
+parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(parent) 
+from main import wordFreq
 from cmnlist import common_words
 
+
 def run_tests():
-    hemingway_dir = 'Hemingway'
-    aggregated_freq = hway_aggregate(hemingway_dir)
+    hemingway_dir = '../Hemingway'
+    aggregated_freq = wordFreq(hemingway_dir)
     assert aggregated_freq is not None, "Aggregated frequency dictionary is empty."
     for word in common_words:
         assert word in aggregated_freq, f"'{word}' not found in aggregated word frequencies."
@@ -16,7 +21,7 @@ def run_tests():
 
     #find the themes in hemginway's poems (this isn't fleshed out yet, as aforementioned)
     theme_words = ['home', 'love', 'war'] 
-    theme_freq = hway_theme(aggregated_freq, theme_words)
+    theme_freq = wordFreq(aggregated_freq, theme_words)
     assert theme_freq, "No theme words found in Hemingway's poems."
     
     
@@ -32,6 +37,10 @@ def run_tests():
 
     print("All tests passed!")
     
+    
+def main():
+    run_tests()
+    
 
-if __name__ == "__run_tests__":
-        run_tests()
+if __name__ == "__main__":
+        main()

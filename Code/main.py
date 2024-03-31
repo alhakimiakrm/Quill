@@ -83,19 +83,6 @@ def wordFreq(Hemingway):
             except IOError as e:
                 print(f"Error reading file {file_path}: {e}")
     return combined_freq
-
-#Build a poem based off of the structure of 'The Age Demanded' --- Work PC does not have C++ compiler :( 
-def typeTAD(dir):
-    tad = "hemingway1.txt"
-    file_path = os.path.join(dir, tad)
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            text = file.read()
-            processed = preprocess(text)
-            texts, all_words, all_sentences = parse_all(processed)
-                    
-    except IOError as e:
-            print(f'Error reading file {file_path}: {e}')
                     
 #main loop
 def main():
