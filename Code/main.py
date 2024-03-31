@@ -1,35 +1,22 @@
-import os
+import re
 from lingua import Language, LanguageDetectorBuilder
 from nltk.tokenize import sent_tokenize, regexp_tokenize
 from collections import defaultdict
-import re
 
-
-#build lingua once to recognize the following languages
+# Build lingua once to recognize the specified languages
 detector = LanguageDetectorBuilder.from_languages(Language.ENGLISH, Language.SPANISH, Language.GERMAN).build()
 
-#read file 
-def read_file(file_path): 
+# Function to read the file content
+def read_file(file_path):
     try:
-        with open(file_path, 'r', encoding='utf-8') as file: #encode in utf-8 format
+        with open(file_path, 'r', encoding='utf-8') as file:
             return file.read()
     except IOError as e:
-        print(f"Error reading file {file_path}: {e}") #error handling
+        print(f"Error reading file {file_path}: {e}")
         return None
 
-#iterate through TextSample and read each file
-def read_all(directory_path): 
-    texts = []
-    for filename in os.listdir(directory_path):
-        if filename.endswith(".txt"): 
-            file_path = os.path.join(directory_path, filename)
-            file_content = read_file(file_path)
-            if file_content is not None:
-                texts.append((filename, file_content))
-    return texts
-
-#check if language is in english
-def is_english(text): 
+# Function to check if the content is in English
+def is_english(text):
     try:
         detected_language = detector.detect_language_of(text)
         return detected_language == Language.ENGLISH
@@ -37,75 +24,62 @@ def is_english(text):
         print(f"Error during language detection: {e}")
         return False
 
-#convert all txt files to a consistent format (lowercase, remove punctuation etc.
+# Preprocess the text
 def preprocess(text_samples):
-    text_samples = re.sub(r'\s+', ' ', text_samples)
-    text_samples = re.sub(r'[^\w\s-]', '', text_samples)
-    text_samples = text_samples.lower()
+    text_samples = text_samples.lower() #convert all the text to lowercase
+    
+    # Handle contractions 
+    contractions = {
+        "don't": "do not", "doesn't": "does not", "didn't": "did not",
+        "won't": "will not", "can't": "cannot", "couldn't": "could not",
+        "shouldn't": "should not", "wouldn't": "would not", "isn't": "is not",
+        "aren't": "are not", "wasn't": "was not", "weren't": "were not",
+        "haven't": "have not", "hasn't": "has not", "hadn't": "had not",
+        "let's": "let us", "that's": "that is", "who's": "who is",
+        "what's": "what is", "here's": "here is", "there's": "there is"
+    }
+    
+    for contraction, full_form in contractions.items():
+        text_samples = re.sub(r"\b{}\b".format(contraction), full_form, text_samples) 
+    
+    text_samples = re.sub(r'\s+', ' ', text_samples).strip()#replace whitespace chars with a single space
+    text_samples = re.sub(r'[^\w\s]', '', text_samples) #standardize text, removing punctuation, symbols and anything else that is non-word
+    
     return text_samples
 
-    
-#parse all files and tokenize words and sentences
-def parse_all(Hemingway):
-    texts = []      
-    all_words = []      
-    all_sentences = []      
-    for filename in os.listdir(Hemingway):      #iterate through 'Hemingway
-        if filename.endswith(".txt"):   #only read text files 
-            with open(os.path.join(Hemingway, filename), 'r', encoding='utf-8') as file:   #encode them in utf-8
-                text = file.read()   
-                processed = preprocess(text)   
-                texts.append(processed)       
-                words = regexp_tokenize(processed, pattern=r'\b\w+\b')   #return whole words, ignoring punctuation or whitespace 
-                sentences = sent_tokenize(processed)    
-                all_words.extend(words)       
-                all_sentences.extend(sentences) 
-                print(sentences)  
-    return texts, all_words, all_sentences
+# Tokenize the preprocessed text into words and sentences
+def tokenize(text):
+    words = regexp_tokenize(text, pattern=r'\b\w+\b')
+    sentences = sent_tokenize(text)
+    return words, sentences
 
+# Calculate word frequencies in the text
+def word_freq(text):
+    freq = defaultdict(int)
+    words = text.split()
+    for word in words:
+        if word.isalpha():
+            freq[word] += 1
+    return freq
 
-def wordFreq(Hemingway):
-    combined_freq = defaultdict(int)
-    
-    for filename in os.listdir(Hemingway):
-        if filename.endswith(".txt"):
-            file_path = os.path.join(Hemingway, filename)
-            try:
-                with open(file_path, 'r', encoding='utf-8') as file:
-                    text = file.read()
-                    processed_text = preprocess(text)  
-                    words = processed_text.split() 
-                    
-                    for word in words:
-                        if word.isalpha():  # Check if the token is a word
-                            combined_freq[word] += 1
-
-            except IOError as e:
-                print(f"Error reading file {file_path}: {e}")
-    return combined_freq
-                    
-#main loop
+# Main function
 def main():
-    hemingway_dir = 'Hemingway'
-    texts = read_all(hemingway_dir)
+    file_path = 'Hemingway/hemingway1.txt'
+    text_content = read_file(file_path)
 
-    if not texts:
-        print(f"No text files found in {hemingway_dir}.")
+    if text_content is None:
+        print(f"Failed to read {file_path}.")
+    elif is_english(text_content):
+        print(f"\033[92mSuccessfully read {file_path}!\033[0m")
+        return
+    
+    if not is_english(text_content): 
+        print(f"\033[91mnot in English. Please adjust your text files and make sure they are in English.\033[0m]")
         return
 
-    eng_texts = []
-    for filename, content in texts:
-        print(f"Processing '{filename}'...", end=" ")
-        if is_english(content):
-            print(f"\033[92msuccess\033[0m")
-            eng_texts.append((filename, content))
-        else:
-            print(f"\033[91mnot in English. Skipping..\033[0m]")
+    processed_text = preprocess(text_content)
+    words, sentences = tokenize(processed_text)
+    frequencies = word_freq(processed_text)
 
-    if not eng_texts:
-        print('No English texts were found. Please make sure the texts you upload are in English.')
-    else:
-        print(f"Processed {len(eng_texts)} English text files.")
-        
 if __name__ == "__main__":
     main()
