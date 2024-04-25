@@ -43,20 +43,11 @@ Use deactivate to exit the virtual environment
 ```Shell
 $ deactivate
 ```
-
-<h1> 3-31-2024 </h1> 
- <p>Cleaned up main and removed excess code- now only reading for one text file to simplify my approach for the time being. The goal for now will be to 
- read a small corpus of text, in this case only being Hemingway's full record of poems, pre-processing that (tokenizing, finding word frequencies, gathering stylistic features, etc) and then feeding it into a small and manageable model that will generate some text based only off of Hemingway's work. I think I will go with GPT2 and continue to experiment with BERT if needed.
-</p>
-
-<p>I began working on Markov Chains to practice with some simple text generation. I did a little something with GPT 2 in 'model_training' but that didn't really go anywhere and I am very lost on it so I'm taking a step back.</p>
-
-[Markov Chains](https://www.youtube.com/watch?v=G7FIQ9fXl6U)
  
  <h2> Quill </h2>
-Quill is a poem verse generator that creates poems in the style of various famous literary authors and poets such as Hemingway, Angelou and more. It is (going to be) developed using 
-Pyhton and various NLP based technologies like NLTK, Word2Vec and PyTorch amongst any others I might stumble across.
+Quill is a poem verse generator that creates poems in the style of various famous literary authors and poets such as Hemingway, Angelou and more. It is developed using 
+Python and various NLP based technologies like NLTK, Word2Vec and PyTorch. 
 
- This exercise is for my own enjoyment and to develop my programming skills as well as other skills such as writing _good_ code as opposed to just working code, proper documentation and good habits when it comes to organizing files, managing a repository, etc etc. If anyone runs into this and wants to help, or provide feedback, you are completely welcome to. 
+This exercise is for my own enjoyment and to develop my programming skills as well as other skills such as writing _good_ code as opposed to just working code, proper documentation and good habits when it comes to organizing files, managing a repository, etc etc. If anyone runs into this and wants to help, or provide feedback, you are completely welcome to. 
 
 _This README will constantly be updated as the project moves along. Last update: 4:12 AM EDT // 03/31/2024_
