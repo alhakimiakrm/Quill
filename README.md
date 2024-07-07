@@ -1,6 +1,6 @@
 <h1> Quill: An Exercise in NLP </h1>
 I created Quill to venture into NLP and Machine Learning. This program takes a corpus of texts from pre-determined authors,
-process/cleans up their work, and output a new poem or short story based on the training data gathered from their work. 
+process/cleans up their work, and outputs a new poem or short story based on the training data gathered from their work. 
 
 
 
