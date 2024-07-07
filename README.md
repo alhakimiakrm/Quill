@@ -1,6 +1,4 @@
-Certainly! Here is the `README.md` file content based on the revised version:
 
-```markdown
 # Quill: An Exercise in NLP
 
 I created Quill to venture into NLP and Machine Learning. This program takes a corpus of texts from pre-determined authors, processes/cleans their work, and outputs a new poem or short story based on the training data gathered from their work.
