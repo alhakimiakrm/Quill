@@ -1,14 +1,12 @@
 <h1> Quill: An Exercise in NLP </h1>
-I created Quill to venture into NLP and Machine Learning.
- With doing my Dual Degree in English and Computer Science, I thought of no better way to take advantage of what I have been able to learn about the concept
- of a language and the literature behind the history of languages than to incorporate NLP into my studies.
+I created Quill to venture into NLP and Machine Learning. This program takes a corpus of texts from pre-determined authors,
+process/cleans up their work, and output a new poem or short story based on the training data gathered from their work. 
 
 
 
 ## Prerequisites <a name = "prerequisites"></a>
 
-You need to have a machine with Python 3.9+ installed. Please also refer to the dependencies and ensure you have the required libraries installed.
-
+You need to have a machine with Python 3.9+ installed. Please also refer to requirements and run 'pip install -r requirements.txt'
 ```Shell
 
 $ python3.9 -V
@@ -20,7 +18,7 @@ $ echo $SHELL
 ```
 
 ## Development Environment <a name = "Quill"></a>
-It is recommended that you initiate a virtual environment to develop out of this repository.
+It is recommended to create and activate a virtual environment before contributing to this repository.
 
 ```Shell
 $ pip install virtualenv
@@ -45,9 +43,19 @@ $ deactivate
 ```
  
  <h2> Quill </h2>
-Quill is a poem verse generator that creates poems in the style of various famous literary authors and poets such as Hemingway, Angelou and more. It is developed using 
-Python and various NLP based technologies like NLTK, Word2Vec and PyTorch. 
+I've implemented an LSTMM model to train on Hemingway's short handful of work. As of the last commit of this readme file, only 20 epochs were put in place to train on the work. Here is an example of what is being output so far.
 
-This exercise is for my own enjoyment and to develop my programming skills as well as other skills such as writing _good_ code as opposed to just working code, proper documentation and good habits when it comes to organizing files, managing a repository, etc etc. If anyone runs into this and wants to help, or provide feedback, you are completely welcome to. 
+<h5> Test start text: 'soldiers never do die well'
 
-_This README will constantly be updated as the project moves along. Last update: 4:12 AM EDT // 03/31/2024_
+>soldiers never do die well crosses mark the places wooden crosses where they fell stuck above their faces soldiers pitch and cough and twitch all the world roars red and black soldiers smother in a ditch choking through the whole attack i like americans they are so unlike canadians they do not take their policemen
+
+<h5> Test start text: 'the age demanded'
+
+>the age demanded that we sing and cut away our tongue the age demanded that we flow and hammered in the bung the age demanded that we dance and jammed us into iron pants and in the end the age was handed the sort of shit that it demanded a porcupine skin stiff
+
+Very poetic, isn't it.
+
+Raising the number of epochs would lead to overfitting so an important implementation to work on would be early stopping, where the training process is halted if the model's performance on a validation sets stops improving for a certain number of epochs. Another good thing to 
+look into would be regularization; using techniques like L1/L2 regularization might prevent the model from overfitting its data.
+
+_Last update: 4:22 PM EDT // 7/7/2024_
