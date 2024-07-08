@@ -72,4 +72,3 @@ Very poetic, isn't it?
 Raising the number of epochs could lead to overfitting, so an important implementation to work on would be early stopping. Early stopping halts the training process if the model's performance on a validation set stops improving for a certain number of epochs. Another useful technique to consider is regularization; using methods like L1/L2 regularization can help prevent the model from overfitting the data.
 
 _Last update: 4:22 PM EDT // 7/7/2024_
-```
