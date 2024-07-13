@@ -5,6 +5,15 @@ from src.pre_processor import PoemPreprocessor, load_corpus
 from src.dataset import PoemDataset
 from src.model import LSTMModel
 
+'''
+This script trains the LSTM model on the provided corpus, pre-processes it and initializes the
+model, moving it to the appropiate device (CPU or GPU)
+The function below then defines the loss function and optimizer.
+Next, a DataLoader is created for batching sequences and the model is trained over
+a specified amoount of epochs, printing the loss at every interval.
+Finally, the trained model is returned and so is the pre-processor object.
+'''
+
 def train_model(corpus_path, num_epochs=20, sequence_length=10, batch_size=32, learning_rate=0.001):
     corpus = load_corpus(corpus_path)
     preprocessor = PoemPreprocessor(corpus)

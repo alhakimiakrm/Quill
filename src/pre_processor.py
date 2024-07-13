@@ -1,6 +1,13 @@
 import re
 from collections import Counter
 
+'''
+This script "cleans" the text, tokenizes (or splits into words), and builds vocabulary
+from those words by creating mapping from words to indices and vice verse.
+The script then converts those tokens to sequences of indices based on the vocab, building, and sequence conversion steps.
+load_corpus loads the text, which in this case is Hemingway's works.
+'''
+
 class PoemPreprocessor:
     def __init__(self, corpus):
         self.corpus = corpus

@@ -2,6 +2,13 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 
+'''
+Implements LSTM (Long Short Term Memory) model for generating text from trained model.
+The function below initializes the model's hidden state. It then iteratively predicts
+the next word based on teh current sequence, appends the predicted word to the sequence and returns
+the generated text. 
+'''
+
 def generate_text(model, start_text, preprocessor, num_words, sequence_length):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.eval()
