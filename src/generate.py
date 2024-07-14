@@ -1,5 +1,6 @@
 import torch
 import torch.nn.functional as F
+from src.model import LSTMModel
 import numpy as np
 
 '''
