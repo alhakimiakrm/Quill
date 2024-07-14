@@ -17,13 +17,13 @@ class PoemPreprocessor:
 
     def clean_text(self, text):
         text = re.sub(r'\s+', ' ', text)
-        text = re.sub(r'[^a-zA-Z\s]', '', text)
-        text = re.sub(r'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~', text)
+        processed_text = re.sub(r'\s([?.!,"\'\)])', r'\1', text)
+        processed_text = re.sub(r'([(\[\{])\s', r'\1', text)
         text = text.lower().strip()
         return text
 
     def tokenize_text(self, text):
-        return text.split()
+        return re.findall(r'\w+|[^\w\s]', text, re.UNICODE)
 
     def build_vocab(self, tokens):
         counter = Counter(tokens)

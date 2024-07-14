@@ -1,5 +1,5 @@
 from src.train import train_model
-from src.generate import generate_texts
+from src.generate import generate_text
 
 '''
 main.py executes the training set forward through training.py as well as the text generation
