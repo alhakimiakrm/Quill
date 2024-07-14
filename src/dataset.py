@@ -5,7 +5,7 @@ from torch.utils.data import Dataset
 This is a custom DataSet class for handling text sequences.
 The class intializes with the sequences and sequence length.
 __len__ returns the length of the dataset
-__getitem__ retrieves a sequence and its corresponding target sequence at the given index.
+__getitem__ retrieves a sequence and its corresponding target sequence at the given index.  
 '''
 
 class PoemDataset(Dataset):

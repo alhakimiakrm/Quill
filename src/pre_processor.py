@@ -5,7 +5,7 @@ from collections import Counter
 This script "cleans" the text, tokenizes (or splits into words), and builds vocabulary
 from those words by creating mapping from words to indices and vice verse.
 The script then converts those tokens to sequences of indices based on the vocab, building, and sequence conversion steps.
-load_corpus loads the text, which in this case is Hemingway's works.
+load_corpus loads the text, which in this case is Hemingway's works.    
 '''
 
 class PoemPreprocessor:
@@ -18,6 +18,7 @@ class PoemPreprocessor:
     def clean_text(self, text):
         text = re.sub(r'\s+', ' ', text)
         text = re.sub(r'[^a-zA-Z\s]', '', text)
+        text = re.sub(r'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~', text)
         text = text.lower().strip()
         return text
 
@@ -43,3 +44,7 @@ class PoemPreprocessor:
 def load_corpus(file_path):
     with open(file_path, 'r') as file:
         return file.read()
+
+str = "Hi. How2 are you doing??"
+re.findall(r'[.?]|\w+', str)
+print([i for i in re.findall(r'[.?]|\w+', str) if i])
