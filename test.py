@@ -1,1 +1,5 @@
-print('hello world :P')
+n = 'hello world'
+j = []
+
+for i in j:
+    print(n)
