@@ -1,5 +1,6 @@
+/* General Styles */
 body {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: monospace, Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,7 +10,8 @@ body {
     background: linear-gradient(-45deg, #0f1626, #010203, #f5f5f5);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
-    color: #ecf0f1; /* Light grey for contrast */
+    color: #ecf0f1;
+    text-transform: lowercase;
 }
 
 @keyframes gradientBG {
@@ -28,8 +30,8 @@ body {
     font-size: 3.5em;
     text-align: center;
     color: #f5f5f5;
-    text-transform: lowercase;
     animation: glow 2s ease-in-out infinite alternate, colorChange 8s ease-in-out infinite;
+    text-transform: lowercase;
 }
 
 @keyframes glow {
@@ -66,10 +68,12 @@ input[type="text"], select {
     margin-right: 10px;
     border: 1px solid #34495e;
     border-radius: 5px;
-    background-color: transparent; /* Make background transparent */
+    background-color: transparent;
     color: #ecf0f1;
     width: 200px;
     text-align: center;
+    font-family: monospace;
+    text-transform: lowercase;
 }
 
 button {
@@ -80,6 +84,8 @@ button {
     color: #ecf0f1;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: monospace;
+    text-transform: lowercase;
 }
 
 button:hover {
@@ -89,8 +95,178 @@ button:hover {
 #poem-output {
     margin-top: 30px;
     white-space: pre-wrap;
-    color: #ecf0f1; /* Light grey for contrast */
+    color: #ecf0f1;
     max-width: 600px;
     margin: 0 auto;
     word-wrap: break-word;
+    font-family: monospace;
+    text-transform: lowercase;
+}
+
+#progress-container {
+    margin-top: 20px;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 5px;
+    display: none;
+}
+
+#progress-bar {
+    width: 0;
+    height: 20px;
+    background-color: transparent;
+    border: 1px solid #ecf0f1;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+#progress-bar span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ecf0f1;
+    white-space: nowrap;
+    font-family: monospace;
+    text-transform: lowercase;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* iPhone 15 - Pro, Pro Max, Standard */
+@media only screen and (max-width: 430px) and (max-height: 932px) {
+    .container {
+        width: 90%;
+        font-size: 0.9em;
+    }
+    h1.glowing-title {
+        font-size: 2.5em;
+    }
+    input[type="text"], select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+    #poem-output {
+        font-size: 0.9em;
+    }
+}
+
+/* iPhone 14 - Pro, Pro Max, Standard */
+@media only screen and (max-width: 430px) and (max-height: 844px) {
+    .container {
+        width: 90%;
+        font-size: 0.9em;
+    }
+    h1.glowing-title {
+        font-size: 2.5em;
+    }
+    input[type="text"], select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+    #poem-output {
+        font-size: 0.9em;
+    }
+}
+
+/* iPhone 13 - Pro, Pro Max, Standard */
+@media only screen and (max-width: 430px) and (max-height: 844px) {
+    .container {
+        width: 90%;
+        font-size: 0.9em;
+    }
+    h1.glowing-title {
+        font-size: 2.5em;
+    }
+    input[type="text"], select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+    #poem-output {
+        font-size: 0.9em;
+    }
+}
+
+/* iPhone 12 - Pro, Pro Max, Standard */
+@media only screen and (max-width: 430px) and (max-height: 844px) {
+    .container {
+        width: 90%;
+        font-size: 0.9em;
+    }
+    h1.glowing-title {
+        font-size: 2.5em;
+    }
+    input[type="text"], select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+    #poem-output {
+        font-size: 0.9em;
+    }
+}
+
+/* iPad Pro - 12.9 Inch */
+@media only screen and (max-width: 1024px) and (max-height: 1366px) {
+    .container {
+        width: 80%;
+        font-size: 1em;
+    }
+    h1.glowing-title {
+        font-size: 3em;
+    }
+    input[type="text"], select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+    #poem-output {
+        font-size: 1em;
+    }
+}
+
+/* iPad Pro - 11 Inch */
+@media only screen and (max-width: 834px) and (max-height: 1194px) {
+    .container {
+        width: 80%;
+        font-size: 1em;
+    }
+    h1.glowing-title {
+        font-size: 3em;
+    }
+    input[type="text"], select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+    #poem-output {
+        font-size: 1em;
+    }
 }

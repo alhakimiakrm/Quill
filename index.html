@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quill - poetry generator</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="glowing-title">quill</h1>
+        <div class="input-section">
+            <select id="poet" name="poet">
+                <option value="Hemingway">ernest hemingway</option>
+                <option value="Frost">robert frost</option>
+            </select>
+            <input type="text" id="start_text" name="start_text" placeholder="enter your theme...">
+            <button id="generate-button" onclick="generatePoem()">generate poem</button>
+        </div>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="poem-output"></div>
+    </div>
+    <script>
+        const socket = io();
+    
+        function generatePoem() {
+            const theme = document.getElementById('start_text').value;
+            const poet = document.getElementById('poet').value;
+
+            // Clear the previous poem output
+            document.getElementById('poem-output').innerHTML = '';
+
+            document.getElementById('start_text').disabled = true;
+            document.getElementById('poet').disabled = true;
+            document.getElementById('generate-button').disabled = true;
+
+            fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `start_text=${theme}&poet=${poet}`
+            })
+            .then(response => response.json());
+
+            document.getElementById('progress-container').style.display = 'block';
+        }
+
+        socket.on('training_progress', function(data) {
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.createElement('span');
+            
+            progressBar.innerHTML = ''; // Clear previous content
+            progressText.innerText = `epoch ${data.epoch} - loss: ${data.loss.toFixed(4)}`;
+            progressBar.appendChild(progressText);
+            
+            progressBar.style.width = `${data.progress * 100}%`;
+
+            // Make the text visible as the bar grows
+            if (data.progress > 0) {
+                progressText.style.opacity = 1;
+            }
+        });
+
+        socket.on('training_complete', function(data) {
+            document.getElementById('poem-output').innerHTML = `<pre>${data.poem}</pre>`;
+            resetUI();
+        });
+
+        socket.on('training_cancelled', function(data) {
+            document.getElementById('poem-output').innerHTML = `<pre>${data.message}</pre>`;
+            resetUI();
+        });
+
+        function resetUI() {
+            document.getElementById('start_text').value = '';
+            document.getElementById('start_text').disabled = false;
+            document.getElementById('poet').disabled = false;
+            document.getElementById('generate-button').disabled = false;
+            document.getElementById('progress-container').style.display = 'none';
+        }
+
+        window.onload = function() {
+            document.getElementById('start_text').value = '';
+        }
+    </script>    
+</body>
+</html>
