@@ -4,10 +4,10 @@ import os
 
 if __name__ == "__main__":
     corpus_path = "data/hemingway.txt"
-    num_epochs = 20
-    sequence_length = 10
+    num_epochs = 50
+    sequence_length = 15
     batch_size = 32
-    learning_rate = 0.001
+    learning_rate = 0.005
 
     # Train the model
     model, preprocessor = train_model(corpus_path, num_epochs, sequence_length, batch_size, learning_rate)

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quill - Poetry Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box">
+            <div id="messages"></div>
+        </div>
+        <div class="input-box">
+            <select id="poet">
+                <option value="Hemingway">Hemingway</option>
+                <option value="Angelou" disabled>Angelou (Coming Soon)</option>
+                <option value="Frost" disabled>Frost (Coming Soon)</option>
+            </select>
+            <input type="text" id="start_text" placeholder="Start your poem..." />
+            <button onclick="generatePoem()">Generate</button>
+        </div>
+    </div>
+
+    <script>
+        function generatePoem() {
+            const startText = document.getElementById('start_text').value;
+            const poet = document.getElementById('poet').value;
+
+            fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `start_text=${startText}&poet=${poet}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                const messages = document.getElementById('messages');
+                const message = document.createElement('div');
+                message.classList.add('message');
+                message.textContent = data.poem;
+                messages.appendChild(message);
+            });
+        }
+    </script>
+</body>
+</html>
