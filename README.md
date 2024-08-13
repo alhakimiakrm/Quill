@@ -53,22 +53,22 @@ $ deactivate
 
 ## Quill
 
-I've implemented an LSTM model to train on Hemingway's limited works. As of the last commit of this README file, only 20 epochs were used to train on the corpus. Here is an example of the output generated so far:
+I've implemented an LSTM model to train on Hemingway and Frost's work. The model and training parameters are in accordance to MY personal computer spec's below, so please proceed with caution when developing out of your own computer.
 
-### Test start text: 'soldiers never do die well'
+### Specs:
 
+```S: Pop!_OS 22.04 LTS x86_64       
+Shell: zsh 5.8.1  
+Resolution: 2560x1440  
+DE: GNOME 42.9  
+WM: Mutter  
+WM Theme: Nordic  
+Terminal: kitty  
+CPU: AMD Ryzen 7 5800X (16) @ 4.375GHz  
+GPU: RTX 4080 (NVIDIA CORPORATION)
+Memory: 4887MiB / 64227MiB
 ```
-soldiers never do die well crosses mark the places wooden crosses where they fell stuck above their faces soldiers pitch and cough and twitch all the world roars red and black soldiers smother in a ditch choking through the whole attack i like americans they are so unlike canadians they do not take their policemen
-```
 
-### Test start text: 'the age demanded'
+Raising the number of epochs could lead to overfitting as well, so if you're wondering what you could contribute- an important implementation to work on would be early stopping. Early stopping halts the training process if the model's performance on a validation set stops improving for a certain number of epochs. Another useful technique to consider is regularization; using methods like L1/L2 regularization can help prevent the model from overfitting the data.
 
-```
-the age demanded that we sing and cut away our tongue the age demanded that we flow and hammered in the bung the age demanded that we dance and jammed us into iron pants and in the end the age was handed the sort of shit that it demanded a porcupine skin stiff
-```
-
-Very poetic, isn't it?
-
-Raising the number of epochs could lead to overfitting, so an important implementation to work on would be early stopping. Early stopping halts the training process if the model's performance on a validation set stops improving for a certain number of epochs. Another useful technique to consider is regularization; using methods like L1/L2 regularization can help prevent the model from overfitting the data.
-
-_Last update: 4:22 PM EDT // 7/7/2024_
+_Last update: 4:05 PM EDT // 8/13/2024_
