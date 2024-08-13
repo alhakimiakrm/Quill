@@ -4,43 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quill - Poetry Generator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-box">
-            <div id="messages"></div>
-        </div>
-        <div class="input-box">
-            <select id="poet">
+    <div class="container">
+        <h1 class="glowing-title">quill</h1>
+        <div class="input-section">
+            <select id="poet" name="poet">
                 <option value="Hemingway">Hemingway</option>
-                <option value="Angelou" disabled>Angelou (Coming Soon)</option>
-                <option value="Frost" disabled>Frost (Coming Soon)</option>
+                <option value="Frost">Frost</option>
             </select>
-            <input type="text" id="start_text" placeholder="Start your poem..." />
-            <button onclick="generatePoem()">Generate</button>
+            <input type="text" id="start_text" name="start_text" placeholder="Enter your theme...">
+            <button onclick="generatePoem()">Generate Poem</button>
         </div>
+        <div id="poem-output"></div>
     </div>
 
     <script>
         function generatePoem() {
-            const startText = document.getElementById('start_text').value;
+            const theme = document.getElementById('start_text').value;
             const poet = document.getElementById('poet').value;
-
+    
             fetch('/generate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: `start_text=${startText}&poet=${poet}`
+                body: `start_text=${theme}&poet=${poet}`
             })
             .then(response => response.json())
             .then(data => {
-                const messages = document.getElementById('messages');
-                const message = document.createElement('div');
-                message.classList.add('message');
-                message.textContent = data.poem;
-                messages.appendChild(message);
+                document.getElementById('poem-output').innerHTML = `<pre>${data.poem}</pre>`;
             });
         }
     </script>

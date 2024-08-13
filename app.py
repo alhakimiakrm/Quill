@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, jsonify
 from src.train import train_model
 from src.generate import generate_text
 from src.pre_processor import PoemPreprocessor, load_corpus
-import os
 
 app = Flask(__name__)
 
@@ -15,11 +14,13 @@ def generate():
     start_text = request.form['start_text']
     poet = request.form['poet']
     
-    # Load the corpus based on selected poet (only Hemingway available now)
+    # Load the corpus based on selected poet
     if poet == "Hemingway":
         corpus_path = "data/hemingway.txt"
+    elif poet == "Frost":
+        corpus_path = "data/frost.txt"
     else:
-        return jsonify({'poem': "Sorry, only Hemingway's style is available right now."})
+        return jsonify({'poem': "Sorry, that poet's style is not available right now."})
 
     # Train model based on user input
     corpus = load_corpus(corpus_path)
