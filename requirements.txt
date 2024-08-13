@@ -16,7 +16,7 @@ python-engineio==4.9.1
 python-socketio==5.11.3
 simple-websocket==1.0.0
 sympy==1.13.2
-torch==2.3.1+cpu  # Use CPU-only version of PyTorch
+torch==2.3.1 --extra-index-url https://download.pytorch.org/whl/cpu  # Use CPU-only version of PyTorch
 triton==2.3.1
 typing_extensions==4.12.2
 Werkzeug==3.0.3
