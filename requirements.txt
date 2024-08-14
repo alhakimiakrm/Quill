@@ -7,3 +7,4 @@ sympy==1.13.2
 typing_extensions==4.12.2
 Werkzeug==3.0.3
 wsproto==1.2.0
+torch==2.3.1 --extra-index-url https://download.pytorch.org/whl/cpu
